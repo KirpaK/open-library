@@ -1,28 +1,45 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { RoutesConfig } from "./routes.config";
-import { ListComponent } from "./books/pages/list/list.component";
-import { FavoritesComponent } from "./books/pages/favorites/favorites.component";
-import { CardComponent } from "./books/pages/card/card.component";
+import { RoutesConfig } from "./routes.config"; 
+import { BooksComponent } from "./modules/books/books.component";
+import { BookComponent } from "./modules/book/book.component";
+import { FavoritesComponent } from "./modules/favorites/favorites.component";
+import { Error404Component } from "./pages/error404/error404.component";
+
+const { routesNames } = RoutesConfig;
 
 const routes: Routes = [
   {
-    path: RoutesConfig.routes.books.index,
-    component: ListComponent,
-    pathMatch: "full",
-    children: [
-      { path: RoutesConfig.routesNames.books.favorites, component: FavoritesComponent },
-      { path: RoutesConfig.routesNames.books.details, component: CardComponent }
-    ]
+    path: routesNames.home,
+    component: BooksComponent,
+    pathMatch: "full"
+  },
+  {
+    path: routesNames.books.favorites,
+    component: FavoritesComponent
+  },
+  {
+    path: routesNames.books.detail,
+    component: BookComponent
+  },
+  {
+    path: routesNames.error404,
+    component: Error404Component
   },
   {
     path: "**",
-    redirectTo: RoutesConfig.routes.books.index
+    redirectTo: RoutesConfig.routes.error404
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: "enabled",
+      scrollPositionRestoration: "enabled",
+      anchorScrolling: "enabled"
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

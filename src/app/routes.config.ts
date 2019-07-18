@@ -1,19 +1,18 @@
-import {InjectionToken} from '@angular/core';
+import { InjectionToken } from "@angular/core";
 
-export let ROUTES_CONFIG = new InjectionToken('routes.config');
+export let ROUTES_CONFIG = new InjectionToken("routes.config");
 
 const basePaths = {
-  books: 'books',
+  books: "books"
 };
 
 const routesNames = {
-  home: '',
-  error404: '404',
+  home: "",
+  error404: "404",
   books: {
     basePath: basePaths.books,
-    index: '',
-    favorites: 'favorites',
-    details: ':id'
+    favorites: `${basePaths.books}/favorites`,
+    detail: `${basePaths.books}/:id`
   }
 };
 
@@ -23,13 +22,20 @@ export const RoutesConfig: any = {
     home: `/${routesNames.home}`,
     error404: `/${routesNames.error404}`,
     books: {
-      index: `/${basePaths.books}/${routesNames.books.index}`,
-      detail: getBookDetail,
-      favorites: `/${basePaths.books}/${routesNames.books.favorites}`
+      favorites: `/${routesNames.books.favorites}`,
+      detail: getBookDetailUri
     }
   }
 };
 
-export function getBookDetail(id) {
-  return `/${basePaths.books}/${id}`;
+export function getHomeUri(search, columns, subjects) {
+  return `/`;
+}
+
+export function getFavoitesUri(keyWords) {
+  return `/${routesNames.books.favorites}`;
+}
+
+export function getBookDetailUri(id) {
+  return `/${routesNames.books.detail.replace(":id", id)}`;
 }

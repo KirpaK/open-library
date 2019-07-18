@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppMenuComponent } from './app-menu.component';
+import { Error404Component } from './error404.component';
 
-describe('AppMenuComponent', () => {
-  let component: AppMenuComponent;
-  let fixture: ComponentFixture<AppMenuComponent>;
+describe('Error404Component', () => {
+  let component: Error404Component;
+  let fixture: ComponentFixture<Error404Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppMenuComponent ]
+      declarations: [ Error404Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppMenuComponent);
+    fixture = TestBed.createComponent(Error404Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
