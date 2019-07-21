@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { RoutesConfig } from "./routes.config"; 
+import { RoutesConfig } from "./config/routes.config"; 
 import { BooksComponent } from "./modules/books/books.component";
 import { BookComponent } from "./modules/book/book.component";
 import { FavoritesComponent } from "./modules/favorites/favorites.component";

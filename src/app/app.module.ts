@@ -1,22 +1,23 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
+import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./store";
-import { BooksModule } from "./modules/books/books.module";
-import { BookModule } from "./modules/book/book.module";
 import { Error404Component } from "./pages/error404/error404.component";
 import { HeaderMenuComponent } from "./shared/header-menu/header-menu.component";
-import { FavoritesModule } from './modules/favorites/favorites.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RoutesConfig, ROUTES_CONFIG } from './routes.config';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { RoutesConfig, ROUTES_CONFIG } from "./config/routes.config";
+import { OpenLibraryConfig } from "./config/open-library.config";
+import { CoreModule } from './shared/core/core.module'; 
+import { LayoutModule } from './shared/core/layout.module';
 
 @NgModule({
   declarations: [AppComponent, Error404Component, HeaderMenuComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -26,12 +27,11 @@ import { RoutesConfig, ROUTES_CONFIG } from './routes.config';
       }
     }),
     BrowserAnimationsModule,
-    BooksModule,
-    BookModule,
-    FavoritesModule
+    CoreModule,
   ],
   providers: [
-    {provide: ROUTES_CONFIG, useValue: RoutesConfig}
+    { provide: ROUTES_CONFIG, useValue: RoutesConfig },
+    { provide: OpenLibraryConfig, useClass: OpenLibraryConfig }
   ],
   bootstrap: [AppComponent]
 })
