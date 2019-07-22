@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, DoCheck } from "@angular/core";
-import { IBook } from "src/app/shared/interfaces/Book";
+import { IBook } from "src/app/shared/interfaces/book";
 import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
