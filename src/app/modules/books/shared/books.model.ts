@@ -1,4 +1,4 @@
-import { IBook, Book } from "src/app/shared/interfaces/Book";
+import { IBook, Book } from "src/app/shared/interfaces/book";
 import { sortDates } from "src/app/shared/helpers/sortDate";
 import { get } from "src/app/shared/helpers/get";
 
