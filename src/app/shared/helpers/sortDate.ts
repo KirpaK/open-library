@@ -3,7 +3,7 @@ interface ISortDate {
   date: Date;
 }
 
-export function sortDates(...dates: any) {
+export function sortDates(dates: any[]) {
   if (!dates) return [];
   return dates
     .map(d => ({

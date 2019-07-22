@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: routesNames.books.detail,
-    component: BookComponent
+    component: BookComponent,
   },
   {
     path: routesNames.error404,

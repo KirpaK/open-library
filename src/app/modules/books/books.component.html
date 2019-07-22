@@ -1,5 +1,11 @@
-
-<p>books works!5</p>
-<div>
-  {{loading}} - {{numberOfPages}}
-</div>  
+<div [class.preloader]="loading">
+  <app-books-filter [(formGroup)]="filterForm"></app-books-filter>
+  <app-books-table [books]="books" [displayedColumns]="displayColumns"></app-books-table>
+  <mat-paginator
+    [length]="total"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onChangePage($event)"
+  >
+  </mat-paginator>
+</div>
