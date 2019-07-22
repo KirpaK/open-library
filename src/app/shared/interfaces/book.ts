@@ -30,7 +30,7 @@ export class Book implements IBook {
 
   constructor(payload) {
     this.coverId = payload.coverId;
-    this.title = payload.title;
+    this.title = payload.title;     
     this.authors = payload.authors || [];
     this.subjects = payload.subjects || [];
     this.key = payload.key;

@@ -1,34 +1,32 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { RoutesConfig } from "./config/routes.config"; 
 import { BooksComponent } from "./modules/books/books.component";
 import { BookComponent } from "./modules/book/book.component";
 import { FavoritesComponent } from "./modules/favorites/favorites.component";
 import { Error404Component } from "./pages/error404/error404.component";
 
-const { routesNames } = RoutesConfig;
-
 const routes: Routes = [
   {
-    path: routesNames.home,
+    path: '',
     component: BooksComponent,
     pathMatch: "full"
   },
   {
-    path: routesNames.books.favorites,
+    path: 'books/favorites',
     component: FavoritesComponent
   },
   {
-    path: routesNames.books.detail,
+    path: 'books/:id',
     component: BookComponent,
   },
   {
-    path: routesNames.error404,
+    path: '404',
     component: Error404Component
   },
   {
     path: "**",
-    redirectTo: RoutesConfig.routes.error404
+    redirectTo: '/404'
   }
 ];
 
@@ -37,7 +35,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       initialNavigation: "enabled",
       scrollPositionRestoration: "enabled",
-      anchorScrolling: "enabled"
+      anchorScrolling: "enabled",
+      preloadingStrategy: PreloadAllModules
     })
   ],
   exports: [RouterModule]

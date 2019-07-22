@@ -19,13 +19,6 @@ import { LayoutModule } from './shared/core/layout.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
-    }),
     BrowserAnimationsModule,
     CoreModule,
   ],
