@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from "@angular/core";
 import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
 import { BooksService } from "./shared/books.service";
-import { IBook } from "src/app/shared/interfaces/Book";
+import { IBook } from "src/app/shared/interfaces/book";
 
 @Component({
   selector: "app-books",
