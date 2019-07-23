@@ -1,6 +1,6 @@
 
 export class OpenLibraryConfig  {
-  static originUrl = "http://openlibrary.org";
+  static originUrl = "https://openlibrary.org";
 
   withPagination(query: string, offset: number = 0, limit: number = 10){
     return `${query}&offset=${offset}&limit=${limit}`;
